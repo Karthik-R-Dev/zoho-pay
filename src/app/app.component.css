@@ -1,0 +1,35 @@
+mat-sidenav-container{
+    height: 100%;
+}
+mat-sidenav,mat-sidenav-content{
+    padding: 20px;
+}
+mat-sidenav{
+    background-color: #1e223d;
+    width: 200px;
+}
+mat-divider{
+    background-color: #bbbdc5;;
+}
+
+h3{
+    color: #bbbdc5;
+}
+a{
+    text-decoration: none;
+    color: #bbbdc5;
+}
+.submenu1{
+color: black;
+}
+.contact{
+    font-size: 13px;
+    color: #bbbdc5;
+}
+.headings{
+    font-size: 14px;
+}
+.close{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
