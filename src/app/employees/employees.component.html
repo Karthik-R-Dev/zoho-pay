@@ -1,1 +1,61 @@
-<p>employees works!</p>
+<div class="container-fluid py-3">
+    <div class="row">
+        <!-- column one -->
+        <div class="col-9">
+            <button
+                mat-button
+                [matMenuTriggerFor]="employeeButton" >
+                {{ employeeButtonValue }}
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu
+                #employeeButton="matMenu" >
+                <div
+                    *ngFor="let button of employeeButtonMenu" >
+                    <mat-list-item>
+                        <a
+                            matLine mat-menu-item
+                            routerLink="/employees"
+                            routerLinkActive="active" >
+                                {{button.value}}
+                        </a>
+                    </mat-list-item>
+                </div>
+            </mat-menu>
+        </div>
+
+        <!-- column two -->
+        <div class="col-2">
+            <button
+                color="primary"
+                routerLink="new"
+                mat-raised-button >
+                Add Employee
+            </button>
+        </div>
+
+        <!-- column three -->
+        <div class="col-1">
+            <button
+                [matMenuTriggerFor]="more"
+                mat-raised-button >
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu
+                #more="matMenu" >
+                <a
+                    matLine mat-menu-item
+                    routerLink="/employees"
+                    routerLinkActive="active" >
+                    Import Data
+                </a>
+                <a
+                    matLine mat-menu-item
+                    routerLink="/employees"
+                    routerLinkActive="active" >
+                    Export Data
+                </a>
+            </mat-menu>
+        </div>
+    </div>
+</div>
