@@ -47,7 +47,53 @@
                                 </mat-form-field>
                             </div>
 
+                            <!-- checkbox -->
+                            <div
+                                *ngSwitchCase="'checkbox'" >
+                                <mat-checkbox
+                                    formControlName={{field.formControlName}} >
+                                    <span class="fw-bold">
+                                        {{ field.label }}
+                                    </span>
+                                </mat-checkbox>
+                                <p class="px-4">
+                                    {{ field.text }}
+                                </p>
+                            </div>
+
+                            <!-- datepicker -->
+                            <div
+                                *ngSwitchCase="'datepicker'" >
+                                <mat-form-field class="w-100">
+                                    <input 
+                                        matInput
+                                        [matDatepicker]="dateOfJoining" >
+                                    <mat-datepicker-toggle matSuffix [for]="dateOfJoining"></mat-datepicker-toggle>
+                                    <mat-datepicker #dateOfJoining></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
                             <!-- autocomplete -->
+                            <div
+                                *ngSwitchCase="'autocomplete'" >
+                                <mat-form-field class="w-100">
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <input type="text"
+                                           placeholder={{field.label}}
+                                           matInput
+                                           formControlName={{field.formControlName}}
+                                           [matAutocomplete]="auto" >
+                                    <mat-autocomplete
+                                        #auto="matAutocomplete" >
+                                        <mat-option *ngFor="let option of field.options"
+                                                    [value]="option" >
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
                             
                             <div
                                 *ngSwitchDefault >
