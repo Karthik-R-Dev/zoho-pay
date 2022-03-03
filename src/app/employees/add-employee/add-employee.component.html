@@ -1,0 +1,65 @@
+<div class="container">
+    <mat-stepper>
+        <mat-step>
+            <form
+                [formGroup]="basicsForm"  >
+                <div
+                    class="row"
+                    *ngFor="let row of basicsFormData; let in = index">
+                    <div
+                        class="col"
+                        *ngFor="let field of row" >
+                        <div
+                            [ngSwitch]="field.type" >
+
+                            <!-- input  -->
+                            <div
+                                *ngSwitchCase="'input'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <input
+                                        matInput
+                                        formControlName={{field.formControlName}}
+                                        placeholder={{field.label}} 
+                                        type="text" >
+                                </mat-form-field>
+                            </div>
+
+                            <!-- select -->
+                            <div
+                                *ngSwitchCase="'select'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <mat-select
+                                        formControlName={{field.formControlName}} >
+                                        <mat-option
+                                            *ngFor="let option of field.options"
+                                            value="option" >
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- autocomplete -->
+                            
+                            <div
+                                *ngSwitchDefault >
+                                default
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            hi
+        </mat-step>
+    </mat-stepper>
+</div>
