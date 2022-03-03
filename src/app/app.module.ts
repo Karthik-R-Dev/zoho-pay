@@ -15,6 +15,13 @@ import { Form16Component } from './form16/form16.component';
 import { LoansComponent } from './loans/loans.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { DialogComponent } from './shared-components/dialog/dialog.component';
+import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
+import { MatStepperModule } from '@angular/material/stepper'
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -28,13 +35,20 @@ import { ContactsComponent } from './contacts/contacts.component';
     Form16Component,
     LoansComponent,
     ReportsComponent,
-    ContactsComponent
+    ContactsComponent,
+    DialogComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
