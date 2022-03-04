@@ -1,0 +1,19 @@
+.heading{
+    text-align: center;
+}
+.card{
+    width: 65%;
+    height: 50%;
+    position: relative;
+    left: 17%;
+    margin-top: 5%;
+}
+mat-card-title{
+    font-size: 18px;
+    position: relative;
+    left: 50%;
+}
+
+mat-card-content{
+    font-size: 18px;
+}
