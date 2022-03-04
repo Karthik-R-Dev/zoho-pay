@@ -11,7 +11,11 @@ mat-sidenav{
 mat-divider{
     background-color: #bbbdc5;;
 }
-
+.brand-pic{
+    height: 40px;
+    padding-left: 0px;
+    margin: 5px;
+}
 h3{
     color: #bbbdc5;
 }
