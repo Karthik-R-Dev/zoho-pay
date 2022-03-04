@@ -1,8 +1,9 @@
 <div class="container">
     <mat-stepper>
         <mat-step *ngFor="let step of stepperData" >
+            {{step[0][0].formGroup}}
             <form
-                [formGroup]="basicsForm"  >
+                [formGroup]="basicsForm" >
                 <div
                     class="row"
                     *ngFor="let row of step; let in = index">

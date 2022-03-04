@@ -43,6 +43,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     DialogComponent,
     AddEmployeeComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

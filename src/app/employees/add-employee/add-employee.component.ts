@@ -9,13 +9,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddEmployeeComponent implements OnInit {
   employeeName!: FormGroup
   basicsForm!: FormGroup
+  salaryDetailsForm!: FormGroup
+  personalInfoForm!: FormGroup
 
   basicsFormData:any = [
     [
       {
         type: 'input',
         label: 'First Name',
-        formControlName: 'firstName'
+        formControlName: 'firstName',
+        formGroup: 'basicsForm'
       },
       {
         type: 'input',
@@ -105,13 +108,74 @@ export class AddEmployeeComponent implements OnInit {
       {
         type: 'input',
         label: 'Personal Email Address',
+        formControlName: 'personalEmailAddress'
+      },
+      {
+        type: 'input',
+        label: 'Mobile Number',
+        formControlName: 'mobileNumber'
+      }
+    ],
+    [
+      {
+        type: 'datepicker',
+        label: 'Date of Birth',
+        formControlName: 'dateOfBirth'
+      },
+      {
+        type: 'input',
+        label: 'age',
+        formControlName: 'age'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: "Father's Name",
+        formControlName: 'fathersName'
+      },
+      {
+        type: 'input',
+        label: 'pan',
+        formControlName: 'pan'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'Address Line 1',
+        formControlName: 'addressLine1'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'Address Line 2',
+        formControlName: 'addressLine2'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'City',
+        formControlName: 'city'
+      },
+      {
+        type: 'select',
+        label: 'State',
+        formControlName: 'state'
+      },
+      {
+        type: 'input',
+        label: 'PIN Code',
+        formControlName: 'pincode'
       }
     ]
   ]
 
   stepperData:any = [
     this.basicsFormData,
-    this.basicsFormData,
+    // this.personalInfoFormData
   ]
 
   constructor(private formBuilder: FormBuilder) { }
@@ -131,6 +195,19 @@ export class AddEmployeeComponent implements OnInit {
       workLocation: ['', Validators.required],
       enablePortalAccess: [false, Validators.required],
       professionalTax: ['', Validators.required]
+    })
+    this.personalInfoForm = this.formBuilder.group({
+      personalEmailAddress: [''],
+      mobileNumber: [''],
+      dateOfBirth: ['', Validators.required],
+      age: [''],
+      fathersName: ['', Validators.required],
+      pan: [''],
+      addressLine1: [''],
+      addressLine2: [''],
+      city: [''],
+      state: [''],
+      pincode: ['']
     })
   }
 
