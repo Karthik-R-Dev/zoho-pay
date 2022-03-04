@@ -13,3 +13,7 @@ mat-card-title{
     position: relative;
     left: 50%;
 }
+
+mat-card-content{
+    font-size: 18px;
+}
