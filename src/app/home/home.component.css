@@ -17,3 +17,44 @@ mat-card-title{
 mat-card-content{
     font-size: 18px;
 }
+
+ul{
+    list-style: none;
+    list-style-type: none;
+    margin-bottom: 5px;
+    
+}
+
+.order{
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    padding-bottom: 15px;
+}
+
+.order:hover{
+    color: blue;
+}
+
+.footer-title{
+    font-weight: 200;
+    color: grey;
+    font-size: 12px;
+}
+
+.footer-content{
+    margin: 70px;
+    display: flex;
+    padding: 20px 30px;
+}
+
+.pic1{
+    width: 125px;
+    height: 150px;
+}
+
+.footer-download{
+    text-align: center;
+}
