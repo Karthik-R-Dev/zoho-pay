@@ -1,11 +1,11 @@
 <div class="container">
     <mat-stepper>
-        <mat-step>
+        <mat-step *ngFor="let step of stepperData" >
             <form
                 [formGroup]="basicsForm"  >
                 <div
                     class="row"
-                    *ngFor="let row of basicsFormData; let in = index">
+                    *ngFor="let row of step; let in = index">
                     <div
                         class="col"
                         *ngFor="let field of row" >

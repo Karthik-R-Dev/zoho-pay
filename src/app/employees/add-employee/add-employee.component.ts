@@ -10,18 +10,6 @@ export class AddEmployeeComponent implements OnInit {
   employeeName!: FormGroup
   basicsForm!: FormGroup
 
-  // basicsFormData:any = {
-  //   row1: [
-  //     {label: 'First Name', formControlName: 'firstName'},
-  //     {label: 'Middle Name', formControlName: 'middleName'},
-  //     {label: 'Lat Name', formControlName: 'lastName'}
-  //   ],
-  //   row2: [
-  //     {label: 'First Name', formControlName: 'firstName'},
-  //     {label: 'Middle Name', formControlName: 'middleName'},
-  //     {label: 'Lat Name', formControlName: 'lastName'}
-  //   ]
-  // }
   basicsFormData:any = [
     [
       {
@@ -102,6 +90,28 @@ export class AddEmployeeComponent implements OnInit {
         formControlName: 'enablePortalAccess'
       }
     ]
+  ]
+
+  salaryDetailsFormData: any = [
+    [
+      {
+        type: 'label'
+      }
+    ]
+  ]
+
+  personalInfoFormData: any = [
+    [
+      {
+        type: 'input',
+        label: 'Personal Email Address',
+      }
+    ]
+  ]
+
+  stepperData:any = [
+    this.basicsFormData,
+    this.basicsFormData,
   ]
 
   constructor(private formBuilder: FormBuilder) { }
