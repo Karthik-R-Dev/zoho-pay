@@ -3,7 +3,7 @@
 }
 .card{
     width: 65%;
-    height: 50%;
+    height: 45%;
     position: relative;
     left: 17%;
     margin-top: 5%;
@@ -80,10 +80,10 @@ li{
     background-color: #4e84ff;
     color: #fff;
 }
-.card-second{
+.card-three{
     border-radius: 20px;
     width: 65%;
-    height: 60%;
+    height: 110%;
     padding-bottom: 15%;
     position: relative;
     left: 17%;
@@ -101,5 +101,46 @@ mat-progress-bar{
     left: 7%;
     margin-top: 1.5%;
 }
+.icon-card-three{
+   position: relative;
+   top: 6px;
+   margin-left: 25px;
+   color: grey;
+}
+.content-card-three{
+    text-decoration: none;
+    color: #000000;
+    font-size: 17px ;
+}
+.btn-card-three{
+    height: 40px;
+}
+.sub-icon-card-three{
+    font-size: 15px;
+    position: relative;
+    top: 3px;
+    left: 20px;
+    margin-left: 17px;
+    color: grey;
+}
+.sub-content-card-three{
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px ;
+}
+.sub-content-three{
+    margin-top: 15px;
+}
 
 
+.content{
+    display:flex;
+    justify-content: space-around;
+}
+
+.card4{
+    height: 20%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
