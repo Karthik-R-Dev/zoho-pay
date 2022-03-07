@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { ViewEmployeeComponent } from './employees/view-employee/view-employee.component';
 import { Form16Component } from './form16/form16.component';
 import { HomeComponent } from './home/home.component';
 import { LoansComponent } from './loans/loans.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'loans', component: LoansComponent},
   {path: 'reports', component: ReportsComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'employees/new', component: AddEmployeeComponent}
+  {path: 'employees/new', component: AddEmployeeComponent},
+  {path: 'employees/:id', component: ViewEmployeeComponent                                                                                                                    }
 ];
 
 @NgModule({

@@ -95,14 +95,6 @@ export class AddEmployeeComponent implements OnInit {
     ]
   ]
 
-  salaryDetailsFormData: any = [
-    [
-      {
-        type: 'label'
-      }
-    ]
-  ]
-
   personalInfoFormData: any = [
     [
       {
@@ -173,11 +165,6 @@ export class AddEmployeeComponent implements OnInit {
     ]
   ]
 
-  stepperData:any = [
-    this.basicsFormData,
-    // this.personalInfoFormData
-  ]
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -195,6 +182,10 @@ export class AddEmployeeComponent implements OnInit {
       workLocation: ['', Validators.required],
       enablePortalAccess: [false, Validators.required],
       professionalTax: ['', Validators.required]
+    })
+    this.salaryDetailsForm = this.formBuilder.group({
+      annualCTC: ['', Validators.required],
+      
     })
     this.personalInfoForm = this.formBuilder.group({
       personalEmailAddress: [''],

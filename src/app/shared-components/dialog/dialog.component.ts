@@ -12,7 +12,7 @@ export interface modalData {
 })
 export class DialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: modalData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: object) { }
 
   ngOnInit(): void {
   }
