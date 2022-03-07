@@ -1,0 +1,105 @@
+.heading{
+    text-align: center;
+}
+.card{
+    width: 65%;
+    height: 50%;
+    position: relative;
+    left: 17%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+mat-card-title{
+    font-size: 18px;
+    position: relative;
+    left: 50%;
+}
+
+mat-card-content{
+    font-size: 18px;
+}
+
+ul{
+    list-style: none;
+    list-style-type: none;
+    margin-bottom: 5px;
+    
+}
+
+.order{
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    padding-bottom: 15px;
+}
+
+.order:hover{
+    color: blue;
+}
+
+.footer-title{
+    font-weight: 200;
+    color: grey;
+    font-size: 12px;
+}
+
+.footer-content{
+    display: flex;
+    padding: 30px 90px;
+    justify-content: space-between;
+}
+
+.pic1{
+    width: 125px;
+    height: 150px;
+    padding-bottom: 10px;
+}
+
+.footer-download{
+    text-align: center;
+}
+.app-store{
+    display: flex;
+}
+.app-store-pics{
+    width: 85px;
+    height: 25px;
+    margin-left: 25px;
+}
+.card-first{
+    border-radius: 20px;
+    width: 65%;
+    height: 20%;
+    padding-bottom: 15%;
+    position: relative;
+    left: 17%;
+    margin-top: 5%;
+    background-color: #4e84ff;
+    color: #fff;
+}
+.card-second{
+    border-radius: 20px;
+    width: 65%;
+    height: 60%;
+    padding-bottom: 15%;
+    position: relative;
+    left: 17%;
+    bottom: 15%;
+}
+mat-progress-bar{
+    width: 15%;
+    border-radius: 10px;
+    position: relative;
+    left: 5%;
+    margin-top: 3%;
+}
+.progress-status{
+    position: relative;
+    left: 7%;
+    margin-top: 1.5%;
+}
+
+
