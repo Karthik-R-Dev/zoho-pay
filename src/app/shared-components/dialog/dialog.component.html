@@ -1,3 +1,23 @@
-<h2 mat-dialog-title>
-    <!-- {{ data.title }} -->
-</h2>
+<mat-dialog-content>
+    <p class="p-3"> 
+        <span>
+            <mat-icon [inline]="true" style="color: rgb(255, 255, 40); font-size: 30px;">
+                {{ data.icon }}
+            </mat-icon>
+        </span>
+        {{ data.label }}
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="px-5">
+    <button mat-raised-button
+            color="primary"
+            mat-dialog-close >
+        {{ data.primaryButtonValue }}
+    </button>
+    <button mat-button
+            mat-dialog-close
+            mat-dialog-close="back">
+        {{ data.secondaryButtonValue }}
+    </button>
+</mat-dialog-actions>

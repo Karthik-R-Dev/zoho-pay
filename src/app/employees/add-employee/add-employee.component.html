@@ -3,7 +3,7 @@
         <h1 class="font-weight-bold">Profile
         </h1>
     </div>
-    <mat-stepper>
+    <mat-stepper [linear]="isLinear">
 
         <!-- stepper 1 basics -->
         <mat-step>
@@ -77,6 +77,7 @@
                                 <mat-form-field class="w-100">
                                     <input 
                                         matInput
+                                        formControlName={{field.formControlName}}
                                         [matDatepicker]="dateOfJoining" >
                                     <mat-datepicker-toggle matSuffix [for]="dateOfJoining"></mat-datepicker-toggle>
                                     <mat-datepicker #dateOfJoining></mat-datepicker>
@@ -113,6 +114,19 @@
                     </div>
                 </div>
             </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        disabled={{!basicsForm.valid}}
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        (click)="openModal('cancel')" >
+                    Cancel
+                </button>
+            </div>
         </mat-step>
 
         <!-- stepper 2 salary details -->
@@ -122,7 +136,7 @@
             </ng-template>
             <form [formGroup]="salaryDetailsForm"
                   class="px-5">
-                <div class="row">
+                <div class="row px-5">
                     <div class="col">
                         <mat-label>Annual CTC</mat-label>
                     </div>
@@ -133,18 +147,228 @@
                                     Rs.
                                 </span>
                             </div>
-                            <input type="number">
+                            <input type="number"
+                                   formControlName="annualCTC" >
                             <span class="px-2">per year</span>
                         </div>
                     </div>
                 </div>
+                <div class="row px-5 py-2">
+                    <div class="col">
+                        SALARY COMPONENTS
+                    </div>
+                    <div class="col">
+                        CALCULATION TYPE
+                    </div>
+                    <div class="col">
+                        AMOUNT MONTHLY
+                    </div>
+                    <div class="col">
+                        AMOUNT ANUALLY
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        Basic
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text"
+                                   formControlName="basic"
+                                   class="w-25" >
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    % of CTC
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <span class="w-50 input-group-text">
+                            78
+                        </span>
+                    </div>
+                    <div class="col">
+                        0
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        House Rent Allowance
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text"
+                                   formControlName="houseRentAllowance"
+                                   class="w-25" >
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    % of Basis
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <span class="w-50 input-group-text">
+                            78
+                        </span>
+                    </div>
+                    <div class="col">
+                        0
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        Conveyance Allowance
+                    </div>
+                    <div class="col">
+                        Fixed Amount
+                    </div>
+                    <div class="col">
+                        <input type="text"
+                               class="w-50">
+                    </div>
+                    <div class="col">
+                        0
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        Fixed Allowance
+                        <mat-icon>info</mat-icon>
+                    </div>
+                    <div class="col">
+                        Fixed Amount
+                    </div>
+                    <div class="col">
+                        989
+                    </div>
+                    <div class="col">
+                        0
+                    </div>
+                </div>
+
+                <div class="row bg-primary text-white p-3 border rounded">
+                    <div class="col">
+                        Cost to Company
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+                        Rs. 08
+                    </div>
+                    <div class="col">
+                        Rs. 97
+                    </div>
+                </div>
             </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        disabled={{!salaryDetailsForm.valid}}
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button
+                        (click)="openModal('cancel')" >
+                    Cancel
+                </button>
+            </div>
         </mat-step>
 
+        <!-- stepper 3 personal info -->
         <mat-step>
             <ng-template matStepLabel>
                 Personal Info
             </ng-template>
+            <form
+                [formGroup]="personalInfoForm"
+                class="px-5" >
+                <div
+                    class="row"
+                    *ngFor="let row of personalInfoFormData; let in = index">
+                    <div
+                        class="col"
+                        *ngFor="let field of row" >
+                        <div
+                            [ngSwitch]="field.type" >
+
+                            <!-- input  -->
+                            <div
+                                *ngSwitchCase="'input'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <input
+                                        matInput
+                                        formControlName={{field.formControlName}}
+                                        placeholder={{field.label}} 
+                                        type="text" >
+                                </mat-form-field>
+                            </div>
+
+                            <!-- select -->
+                            <div
+                                *ngSwitchCase="'select'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <mat-select
+                                        formControlName={{field.formControlName}} >
+                                        <mat-option
+                                            *ngFor="let option of field.options"
+                                            value="option" >
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- datepicker -->
+                            <div
+                                *ngSwitchCase="'datepicker'" >
+                                <mat-form-field class="w-100">
+                                    <input 
+                                        matInput
+                                        formControlName={{field.formControlName}}
+                                        [matDatepicker]="dateOfJoining" >
+                                    <mat-datepicker-toggle matSuffix [for]="dateOfJoining"></mat-datepicker-toggle>
+                                    <mat-datepicker #dateOfJoining></mat-datepicker>
+                                </mat-form-field>
+                            </div>  
+                            
+                            <div
+                                *ngSwitchDefault >
+                                default
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        disabled={{!personalInfoForm.valid}}
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        disabled={{!personalInfoForm.valid}}
+                        matStepperNext >
+                    Skip
+                </button>
+            </div>
         </mat-step>
 
         <mat-step>
@@ -169,7 +393,77 @@
                         </p>
                     </div>
                 </div>
+                <hr>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>store</mat-icon>
+                            Bank Transfer (Manual Process)
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Download Bank Advice and process the payment through your bank's website
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
 
+                    <form [formGroup]="bankTransferDetailsForm">
+                        <div class="row"
+                             *ngFor="let row of bankTransferDetails" >
+                            <div class="col"
+                                 *ngFor="let field of row" >
+                                <div [ngSwitch]="field.type">
+
+                                    <!-- field type input -->
+                                    <div *ngSwitchCase="'input'">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>
+                                                {{ field.label }}
+                                            </mat-label>
+                                            <input type="text"
+                                                   matInput
+                                                   formControlName={{field.formControlName}}
+                                                   placeholder={{field.label}} >
+                                        </mat-form-field>
+                                    </div>
+
+                                    <!-- field type radio -->
+                                    <div *ngSwitchCase="'radio'">
+                                        <mat-label>
+                                            {{ field.label }}
+                                        </mat-label>
+                                        <mat-radio-group formControlName={{field.formControlName}} >
+                                            <mat-radio-button *ngFor="let option of field.options" value={{option}}>
+                                                {{ option }}
+                                            </mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </mat-expansion-panel>
+                <hr>
+                <div class="d-flex align-ites-center">
+                    <div class="flex-shrink-0">
+                        <mat-icon>home</mat-icon>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        Cheque
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        matStepperNext >
+                    Skip
+                </button>
             </div>
         </mat-step>
     </mat-stepper>
