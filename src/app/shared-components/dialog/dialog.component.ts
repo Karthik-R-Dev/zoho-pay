@@ -4,8 +4,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 export interface modalData {
   icon: string,
   label: string,
-  primaryValueButton: string,
-  secondaryValueButton: string
+  primaryButtonValue: string,
+  secondaryButtonValue: string
 }
 
 @Component({

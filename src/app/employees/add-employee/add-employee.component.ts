@@ -266,7 +266,7 @@ export class AddEmployeeComponent implements OnInit {
         primaryButtonValue: 'Stay on this page',
         secondaryButtonValue: 'Leave this page'
       }
-      let dialog = this.dialog.open(DialogComponent, { data: {title: 'Do you really want to cancel'}})
+      let dialog = this.dialog.open(DialogComponent, { data: data})
     }
   }
 

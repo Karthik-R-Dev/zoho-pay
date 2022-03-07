@@ -1,3 +1,18 @@
-<h2 mat-dialog-title>
-    <!-- {{ data.title }} -->
-</h2>
+<mat-dialog-content>
+    <mat-icon>
+        {{ data.icon }}
+    </mat-icon>
+    <p>
+        {{ data.label }}
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button
+            mat-dialog-close >
+        {{ data.primaryButtonValue }}
+    </button>
+    <button>
+        {{ data.secondaryButtonValue }}
+    </button>
+</mat-dialog-actions>
