@@ -1,0 +1,73 @@
+<div class="container py-3">
+    <div class="row">
+
+        <div class="col-8">
+            <button mat-mini-fab
+                    color="">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            &nbsp;
+            {{ id }}
+        </div>
+        
+        <div class="col">
+            <button
+                [matMenuTriggerFor]="more"
+                mat-raised-button >
+                Add Deduction
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu
+                #more="matMenu" >
+                <a
+                    matLine mat-menu-item
+                    routerLinkActive="active" >
+                    Post-Tax Deduction
+                </a>
+                <a
+                    matLine mat-menu-item
+                    routerLinkActive="active" >
+                    Pre-Tax Deduction
+                </a>
+            </mat-menu>
+        </div>
+
+        <div class="col">
+            <button
+                [matMenuTriggerFor]="more"
+                mat-raised-button >
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu
+                #more="matMenu" >
+                <a
+                    matLine mat-menu-item
+                    routerLinkActive="active" >
+                    Add/Update Vehicle Details
+                </a>
+                <a
+                    matLine mat-menu-item
+                    routerLinkActive="active" >
+                    Delete Employee
+                </a>
+            </mat-menu>
+        </div>
+    </div>
+
+    <div>
+        <mat-tab-group>
+            <mat-tab label="Overview">
+
+            </mat-tab>
+            <mat-tab label="Salary Details"
+                     routerLink="salary-details" >
+
+            </mat-tab>
+            <mat-tab label="Investments"></mat-tab>
+            <mat-tab label="Payslips & Forms"></mat-tab>
+            <mat-tab label="Loans"></mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>
+

@@ -45,17 +45,21 @@
                 #more="matMenu" >
                 <a
                     matLine mat-menu-item
-                    routerLink="/employees"
                     routerLinkActive="active" >
                     Import Data
                 </a>
                 <a
                     matLine mat-menu-item
-                    routerLink="/employees"
                     routerLinkActive="active" >
                     Export Data
                 </a>
             </mat-menu>
         </div>
+    </div>
+
+    <div>
+        <button (click)="openModal()">
+            open modal
+        </button>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../shared-components/dialog/dialog.component';
 
 @Component({
   selector: 'app-employees',
@@ -17,10 +19,15 @@ export class EmployeesComponent implements OnInit {
   ]
   employeeButtonValue: string = 'Active Employees'
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private dialog: MatDialog ) { }
 
   ngOnInit(): void {
     console.log(this.router.url)
+  }
+
+  openModal(): void {
+    this.dialog.open(DialogComponent, { data: {title: 'hey i am material dialog'} })
   }
 
 }
