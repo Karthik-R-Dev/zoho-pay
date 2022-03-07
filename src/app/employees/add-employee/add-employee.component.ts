@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared-components/dialog/dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -11,6 +14,7 @@ export class AddEmployeeComponent implements OnInit {
   basicsForm!: FormGroup
   salaryDetailsForm!: FormGroup
   personalInfoForm!: FormGroup
+  bankTransferDetailsForm!: FormGroup
 
   basicsFormData:any = [
     [
@@ -155,6 +159,7 @@ export class AddEmployeeComponent implements OnInit {
       {
         type: 'select',
         label: 'State',
+        options: ['Andaman and Nicobar Island'],
         formControlName: 'state'
       },
       {
@@ -165,7 +170,50 @@ export class AddEmployeeComponent implements OnInit {
     ]
   ]
 
-  constructor(private formBuilder: FormBuilder) { }
+  bankTransferDetails:any =  [
+    [
+      {
+        type: 'input',
+        label: 'Account Holder Name',
+        formControlName: 'accountHolderName'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'Bank Name',
+        formControlName: 'bankName'
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'Account Number',
+        formControlName: 'accountNumber'
+      },
+      {
+        type: 'input',
+        label: 'Re-enter Account Number',
+      }
+    ],
+    [
+      {
+        type: 'input',
+        label: 'IFSC',
+        formControlName: 'ifsc'
+      },
+      {
+        type: 'radio',
+        label: 'Account Type',
+        options: ['Current', 'Savings'],
+        formControlName: 'accountType'
+      }
+    ]
+  ]
+
+  constructor(private formBuilder: FormBuilder,
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.basicsForm = this.formBuilder.group({
@@ -200,6 +248,26 @@ export class AddEmployeeComponent implements OnInit {
       state: [''],
       pincode: ['']
     })
+
+    this.bankTransferDetailsForm = this.formBuilder.group({
+      accountHolderName: ['', Validators.required],
+      bankName: ['', Validators.required],
+      accountNumber: ['', Validators.required],
+      ifsc: ['', Validators.required],
+      accountType: ['Savings', Validators.required]
+    })
+  }
+
+  openModal(type: string): void {
+    if (type === "cancel") {
+      let data = {
+        icon: 'warning',
+        label: 'You might have some unsaved changes. Are you sure you want to leave this page?',
+        primaryButtonValue: 'Stay on this page',
+        secondaryButtonValue: 'Leave this page'
+      }
+      let dialog = this.dialog.open(DialogComponent, { data: {title: 'Do you really want to cancel'}})
+    }
   }
 
 }

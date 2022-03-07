@@ -113,6 +113,18 @@
                     </div>
                 </div>
             </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        matStepperNext >
+                    Cancel
+                </button>
+            </div>
         </mat-step>
 
         <!-- stepper 2 salary details -->
@@ -139,12 +151,104 @@
                     </div>
                 </div>
             </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button
+                        (click)="openModal('cancel')" >
+                    Cancel
+                </button>
+            </div>
         </mat-step>
 
+        <!-- stepper 3 personal info -->
         <mat-step>
             <ng-template matStepLabel>
                 Personal Info
             </ng-template>
+            <form
+                [formGroup]="personalInfoForm"
+                class="px-5" >
+                <div
+                    class="row"
+                    *ngFor="let row of personalInfoFormData; let in = index">
+                    <div
+                        class="col"
+                        *ngFor="let field of row" >
+                        <div
+                            [ngSwitch]="field.type" >
+
+                            <!-- input  -->
+                            <div
+                                *ngSwitchCase="'input'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <input
+                                        matInput
+                                        formControlName={{field.formControlName}}
+                                        placeholder={{field.label}} 
+                                        type="text" >
+                                </mat-form-field>
+                            </div>
+
+                            <!-- select -->
+                            <div
+                                *ngSwitchCase="'select'" >
+                                <mat-form-field
+                                    class="w-100" >
+                                    <mat-label>
+                                        {{ field.label }}
+                                    </mat-label>
+                                    <mat-select
+                                        formControlName={{field.formControlName}} >
+                                        <mat-option
+                                            *ngFor="let option of field.options"
+                                            value="option" >
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- datepicker -->
+                            <div
+                                *ngSwitchCase="'datepicker'" >
+                                <mat-form-field class="w-100">
+                                    <input 
+                                        matInput
+                                        [matDatepicker]="dateOfJoining" >
+                                    <mat-datepicker-toggle matSuffix [for]="dateOfJoining"></mat-datepicker-toggle>
+                                    <mat-datepicker #dateOfJoining></mat-datepicker>
+                                </mat-form-field>
+                            </div>  
+                            
+                            <div
+                                *ngSwitchDefault >
+                                default
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        matStepperNext >
+                    Skip
+                </button>
+            </div>
         </mat-step>
 
         <mat-step>
@@ -169,7 +273,77 @@
                         </p>
                     </div>
                 </div>
+                <hr>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>store</mat-icon>
+                            Bank Transfer (Manual Process)
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Download Bank Advice and process the payment through your bank's website
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
 
+                    <form [formGroup]="bankTransferDetailsForm">
+                        <div class="row"
+                             *ngFor="let row of bankTransferDetails" >
+                            <div class="col"
+                                 *ngFor="let field of row" >
+                                <div [ngSwitch]="field.type">
+
+                                    <!-- field type input -->
+                                    <div *ngSwitchCase="'input'">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>
+                                                {{ field.label }}
+                                            </mat-label>
+                                            <input type="text"
+                                                   matInput
+                                                   formControlName={{field.formControlName}}
+                                                   placeholder={{field.label}} >
+                                        </mat-form-field>
+                                    </div>
+
+                                    <!-- field type radio -->
+                                    <div *ngSwitchCase="'radio'">
+                                        <mat-label>
+                                            {{ field.label }}
+                                        </mat-label>
+                                        <mat-radio-group formControlName={{field.formControlName}} >
+                                            <mat-radio-button *ngFor="let option of field.options" value={{option}}>
+                                                {{ option }}
+                                            </mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </mat-expansion-panel>
+                <hr>
+                <div class="d-flex align-ites-center">
+                    <div class="flex-shrink-0">
+                        <mat-icon>home</mat-icon>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        Cheque
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="p-5">
+                <button mat-raised-button 
+                        matStepperNext
+                        color="primary" >
+                    Save and Continue
+                </button>
+                <button mat-button 
+                        matStepperNext >
+                    Skip
+                </button>
             </div>
         </mat-step>
     </mat-stepper>
