@@ -1,11 +1,21 @@
 <div class="container">
+    <div class="text-center">
+        <h1 class="font-weight-bold">Profile
+        </h1>
+    </div>
     <mat-stepper>
-        <mat-step *ngFor="let step of stepperData" >
+
+        <!-- stepper 1 basics -->
+        <mat-step>
+            <ng-template matStepLabel>
+                Basics
+            </ng-template>
             <form
-                [formGroup]="basicsForm"  >
+                [formGroup]="basicsForm"
+                class="px-5" >
                 <div
                     class="row"
-                    *ngFor="let row of step; let in = index">
+                    *ngFor="let row of basicsFormData; let in = index">
                     <div
                         class="col"
                         *ngFor="let field of row" >
@@ -104,8 +114,63 @@
                 </div>
             </form>
         </mat-step>
+
+        <!-- stepper 2 salary details -->
         <mat-step>
-            hi
+            <ng-template matStepLabel>
+                Salary Details
+            </ng-template>
+            <form [formGroup]="salaryDetailsForm"
+                  class="px-5">
+                <div class="row">
+                    <div class="col">
+                        <mat-label>Annual CTC</mat-label>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    Rs.
+                                </span>
+                            </div>
+                            <input type="number">
+                            <span class="px-2">per year</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>
+                Personal Info
+            </ng-template>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>
+                Payment Info
+            </ng-template>
+            <div class="px-5">
+                <h2 class="font-weight-bold">
+                    How would you like to pay this employeee?
+                </h2>
+                <hr>
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <mat-icon>home</mat-icon>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <p class="text-gray">
+                            <span class="fs-5 text-black">
+                                Direct Deposit (Automated Process) <br>
+                            </span>
+                            Initiate payment in Zoho payroll once the pay run is approved
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </mat-step>
     </mat-stepper>
 </div>

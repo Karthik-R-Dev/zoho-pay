@@ -26,6 +26,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatDialogModule } from '@angular/material/dialog';
+import { ViewEmployeeComponent } from './employees/view-employee/view-employee.component';
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -41,8 +45,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     ReportsComponent,
     ContactsComponent,
     DialogComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    ViewEmployeeComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +62,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
