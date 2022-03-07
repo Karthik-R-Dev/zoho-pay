@@ -9,6 +9,7 @@ import {MatTreeModule} from '@angular/material/tree'
 import {MatButtonModule} from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 const material= [
   MatSidenavModule,
@@ -19,7 +20,8 @@ const material= [
   MatTreeModule,
   MatButtonModule,
   MatToolbarModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressBarModule
 ]
 
 @NgModule({
