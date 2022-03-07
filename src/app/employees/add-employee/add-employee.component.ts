@@ -15,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   salaryDetailsForm!: FormGroup
   personalInfoForm!: FormGroup
   bankTransferDetailsForm!: FormGroup
+  isLinear:boolean = true
 
   basicsFormData:any = [
     [
@@ -224,15 +225,17 @@ export class AddEmployeeComponent implements OnInit {
       gender: ['', Validators.required],
       dateOfJoining: ['', Validators.required],
       designation: ['', Validators.required],
-      substatialInterest: [false, Validators.required],
+      substatialInterest: [false],
       workEmail: ['', Validators.required],
       department: ['', Validators.required],
       workLocation: ['', Validators.required],
-      enablePortalAccess: [false, Validators.required],
-      professionalTax: ['', Validators.required]
-    })
+      enablePortalAccess: [false],
+      professionalTax: ['', ]
+    })  
     this.salaryDetailsForm = this.formBuilder.group({
       annualCTC: ['', Validators.required],
+      basic: ['50.00'],
+      houseRentAllowance: ['50.00']
       
     })
     this.personalInfoForm = this.formBuilder.group({
@@ -261,12 +264,17 @@ export class AddEmployeeComponent implements OnInit {
   openModal(type: string): void {
     if (type === "cancel") {
       let data = {
-        icon: 'warning',
+        icon: 'error',
         label: 'You might have some unsaved changes. Are you sure you want to leave this page?',
         primaryButtonValue: 'Stay on this page',
         secondaryButtonValue: 'Leave this page'
       }
       let dialog = this.dialog.open(DialogComponent, { data: data})
+      dialog.afterClosed().subscribe(result => {
+        if ( result === "back") {
+          this.router.navigate(['/employees'])
+        }
+      })
     }
   }
 
