@@ -3,7 +3,7 @@
 }
 .card{
     width: 65%;
-    height: 45%;
+    height: 50%;
     position: relative;
     left: 17%;
     margin-top: 5%;
@@ -133,14 +133,86 @@ mat-progress-bar{
 }
 
 
-.content{
-    display:flex;
-    justify-content: space-around;
-}
 
 .card4{
     height: 20%;
     text-align: center;
     text-decoration: none;
     color: black;
+}
+.img-card-first{
+    width: 60%;
+    height: 75%;
+    margin: 35px;
+    z-index: 1;
+}
+.card-icon-first{
+    position: relative;
+    right: 40%;
+    cursor: pointer;
+    font-size: 70px;
+}
+.card-icon-first:hover{
+    font-size: 80px;
+    transition: 0.5s ease-in-out
+}
+.card-content-one{
+    font-size: 10px;
+    position: relative;
+    right: 150px;
+}
+mat-card-subtitle{
+    position: relative;
+    left: 220%;
+}
+.card-icon-1{
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+}
+.card-icon-1:hover{
+    color: #4e84ff;
+    transition: 0.5s ease;
+}
+.card-icon-four{
+    color: #4e84ff;
+    border: 1px solid #f5f7ff;
+    height: 50px;
+    width: 60px;
+    border-radius: 5px;
+    background-color: #f5f7ff;
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.card-icon-four:hover{
+    width: 70px;
+    font-size: 32px;
+    transition: 0.5ms ease;
+}
+.configure-class{
+    text-decoration: none;
+    font-size: 13px;
+    color: #4e84ff;
+}
+.card-four{
+    width: 65%;
+    height: 30%;
+    position: relative;
+    left: 17%;
+    border-radius: 10px;
+    bottom: 65px;
+    padding: 25px;
+}
+.card-four-content{
+    cursor: pointer;
+}
+.card-five{
+    height: 20%;
+    font-size: 10px;
+}
+
+.card-five-content{
+    display:flex;
+    justify-content: space-around;
 }
