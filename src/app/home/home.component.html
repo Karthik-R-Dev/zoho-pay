@@ -5,11 +5,33 @@
 <mat-card class="card">
   <mat-card-title-group>
     <mat-card-title>Learn how to use Zoho Payroll</mat-card-title>
-    <!-- <mat-card-subtitle></mat-card-subtitle> -->
+    <mat-card-subtitle>HELP & SUPPORT</mat-card-subtitle>
   </mat-card-title-group>
-  <mat-card-content>
-
-  </mat-card-content>
+  <div>
+    <mat-card-content>
+      <img class="img-card-first"
+        src="https://css.zohostatic.in/zfpayroll/zpayroll/assets/images/video-thumbnail-d24dd2a53899a9b790ae7f8ae352976f.png"
+        alt="">
+      <mat-icon style="color:#4e85ff;" class="card-icon-first" (click)='openModal()'>play_circle_filled</mat-icon>
+      <ul>
+        <li style="position: absolute; left:75%;bottom: 55%;"><a class="card-icon-1" href="">
+            <mat-icon
+              style="margin: 10px;border: 1px solid gray ; width: 35px; height: 32px; border-radius: 5px;padding: 3px;">
+              quiz</mat-icon><span style="position: relative; bottom: 5px; left: 5px;">FAQ</span>
+          </a></li>
+        <li style="position: absolute; left:75%;bottom: 35%;"><a class="card-icon-1" href="">
+            <mat-icon
+              style="margin: 10px;border: 1px solid gray ; width: 35px; height: 32px; border-radius: 5px;padding: 3px;">
+              library_books</mat-icon><span style="position: relative; bottom: 5px; left: 5px;">Guides</span>
+          </a></li>
+        <li style="position: absolute; left:75%;bottom: 15%;"><a class="card-icon-1" href="">
+            <mat-icon
+              style="margin: 10px;border: 1px solid gray ; width: 35px; height: 32px; border-radius: 5px;padding: 3px;">
+              help_outline</mat-icon><span style="position: relative; bottom: 5px; left: 5px;">Help</span>
+          </a></li>
+      </ul>
+    </mat-card-content>
+  </div>
 </mat-card>
 <!-- card-2 -->
 <mat-card class="card-first">
@@ -69,7 +91,7 @@
           </li>
           <li>
             <mat-icon class="sub-icon-card-three">check_circle_outline</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#" class="sub-content-card-three">  Employees' State Insurance</a>&nbsp;&nbsp;
+            <a href="#" class="sub-content-card-three"> Employees' State Insurance</a>&nbsp;&nbsp;
             <a href="#" style="font-size: 12px; text-decoration: none;">Configure Now</a>
           </li>
           <li>
@@ -111,18 +133,51 @@
   </div>
 </mat-card>
 
-
-
-<mat-card class="card5">
-  <mat-card-content class="content">
-    <p>Need Clarification? Drop us an e
-      mail and we’ll get back to you</p>
-
-
-    <p>You can directly talk to us 
-      every Monday to Friday 
-      9:00 AM to 7:00 PM</p>
-    
+<!-- card-4 -->
+<mat-card class="card-four">
+  <mat-card-content>
+    <p style="font-size: 12px;">ADDITIONAL NOTABLE FEATURES</p>
+    <div style="display: flex; justify-content:space-around;padding: 15px;">
+      <div class="card-four-content" style="text-align: center; padding: 5px;">
+        <mat-icon class="card-icon-four">assured_workload</mat-icon>
+        <p style="font-size: 15px;">Direct Deposit</p>
+        <!-- <a class="configure-class" style="margin-top: 30px;" href="">configure now</a> -->
+      </div>
+      <div class="card-four-content" style="text-align: center;padding: 5px;">
+        <mat-icon class="card-icon-four">payments</mat-icon>
+        <p  style="font-size: 15px;">Salary Templates</p>
+        <!-- <a class="configure-class" href="">configure now</a> -->
+      </div>
+      <div class="card-four-content" style="text-align: center;padding: 5px;">
+        <mat-icon class="card-icon-four">notifications</mat-icon>
+        <p  style="font-size: 15px;">Auto Reminder for IT <br> & POI Declaration</p>
+        <!-- <a class="configure-class" href="">configure now</a> -->
+      </div>
+      <div class="card-four-content" style="text-align: center;padding: 5px;">
+        <mat-icon class="card-icon-four">person</mat-icon>
+        <p  style="font-size: 15px;">Employee Custom Field</p>
+        <!-- <a class="configure-class" href="">configure now</a> -->
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<!-- card-5 -->
+<mat-card class="card-five">
+  <mat-card-content class="card-five-content">
+    <div style="font-size: 12px; display: flex;justify-content: space-between;padding: 35px;">
+      <mat-icon style="padding: 10px;position: relative; right: 25px;">mail</mat-icon>
+      <p>Need Clarification? <a style="text-decoration: none;padding-left: 10px;" href="">Drop us an email</a> <br> Drop us an e
+        mail and we’ll get back to you</p>
+    </div>
+    <div style="font-size: 12px; display: flex;justify-content: space-between;padding: 35px;">
+      <mat-icon style="padding: 10px;position: relative; right: 25px;">phone</mat-icon>
+      <p>You can directly talk to us
+        every <br><strong>
+          Monday to Friday
+          9:00 AM to 7:00 PM
+        </strong>
+      </p>
+    </div>
   </mat-card-content>
 </mat-card>
 

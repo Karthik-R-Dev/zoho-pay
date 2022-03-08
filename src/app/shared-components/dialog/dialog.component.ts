@@ -5,7 +5,8 @@ export interface modalData {
   icon: string,
   label: string,
   primaryButtonValue: string,
-  secondaryButtonValue: string
+  secondaryButtonValue: string,
+  URL:string
 }
 
 @Component({
