@@ -16,6 +16,12 @@ export class AddEmployeeComponent implements OnInit {
   personalInfoForm!: FormGroup
   bankTransferDetailsForm!: FormGroup
   isLinear:boolean = true
+  monthlyBasic: number = 0
+  yearlyBasic: number = 0
+  monthlyHouseRentalAllowance: number = 0
+  yearlyHouseRentalAllowance: number = 0
+  monthlyCTC:number = 0
+  monthlyFixedAllowance: number = 0
 
   basicsFormData:any = [
     [
@@ -234,9 +240,10 @@ export class AddEmployeeComponent implements OnInit {
     })  
     this.salaryDetailsForm = this.formBuilder.group({
       annualCTC: ['', Validators.required],
-      basic: ['50.00'],
-      houseRentAllowance: ['50.00']
-      
+      basic: [50.00],
+      houseRentAllowance: [50.00],
+      conveyanceAllowanceForMonth: [10],
+      fixedAmount: ['']
     })
     this.personalInfoForm = this.formBuilder.group({
       personalEmailAddress: [''],
@@ -257,7 +264,7 @@ export class AddEmployeeComponent implements OnInit {
       bankName: ['', Validators.required],
       accountNumber: ['', Validators.required],
       ifsc: ['', Validators.required],
-      accountType: ['Savings', Validators.required]
+      accountType: ['Savings', Validators.required],
     })
   }
 
@@ -275,6 +282,20 @@ export class AddEmployeeComponent implements OnInit {
           this.router.navigate(['/employees'])
         }
       })
+    }
+  }
+
+  annualCTC(): void {
+    let annualCTC = this.salaryDetailsForm.value.annualCTC
+    this.monthlyCTC = Math.ceil(annualCTC / 12)
+    if (annualCTC !== 0) {
+      let basic = this.salaryDetailsForm.value.basic
+      let houseRentAllowance = this.salaryDetailsForm.value.houseRentAllowance
+      this.yearlyBasic = Math.ceil(annualCTC * (basic / 100))
+      this.monthlyBasic = Math.ceil(this.yearlyBasic / 12)
+      this.yearlyHouseRentalAllowance = Math.ceil(this.yearlyBasic * (houseRentAllowance / 100))
+      this.monthlyHouseRentalAllowance = Math.ceil(this.monthlyBasic * (houseRentAllowance / 100))
+      this.monthlyFixedAllowance = this.monthlyCTC - (this.monthlyBasic + this.monthlyHouseRentalAllowance + this.salaryDetailsForm.value.conveyanceAllowanceForMonth)
     }
   }
 

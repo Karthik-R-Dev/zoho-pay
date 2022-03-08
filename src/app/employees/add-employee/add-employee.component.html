@@ -148,6 +148,7 @@
                                 </span>
                             </div>
                             <input type="number"
+                                   (ngModelChange)="annualCTC()"
                                    formControlName="annualCTC" >
                             <span class="px-2">per year</span>
                         </div>
@@ -176,6 +177,7 @@
                         <div class="input-group mb-3">
                             <input type="text"
                                    formControlName="basic"
+                                   (ngModelChange)="annualCTC()"
                                    class="w-25" >
                             <div class="input-group-append">
                                 <span class="input-group-text">
@@ -186,11 +188,11 @@
                     </div>
                     <div class="col">
                         <span class="w-50 input-group-text">
-                            78
+                            {{ monthlyBasic }}
                         </span>
                     </div>
                     <div class="col">
-                        0
+                        {{ yearlyBasic }}
                     </div>
                 </div>
 
@@ -202,6 +204,7 @@
                         <div class="input-group mb-3">
                             <input type="text"
                                    formControlName="houseRentAllowance"
+                                   (ngModelChange)="annualCTC()"
                                    class="w-25" >
                             <div class="input-group-append">
                                 <span class="input-group-text">
@@ -212,11 +215,11 @@
                     </div>
                     <div class="col">
                         <span class="w-50 input-group-text">
-                            78
+                            {{ monthlyHouseRentalAllowance }}
                         </span>
                     </div>
                     <div class="col">
-                        0
+                        {{ yearlyHouseRentalAllowance }}
                     </div>
                 </div>
 
@@ -228,11 +231,13 @@
                         Fixed Amount
                     </div>
                     <div class="col">
-                        <input type="text"
+                        <input type="number"
+                               formControlName="conveyanceAllowanceForMonth"
+                               (ngModelChange)="annualCTC()"
                                class="w-50">
                     </div>
                     <div class="col">
-                        0
+                        {{ salaryDetailsForm.value.conveyanceAllowanceForMonth * 12 }}
                     </div>
                 </div>
 
@@ -245,10 +250,10 @@
                         Fixed Amount
                     </div>
                     <div class="col">
-                        989
+                        {{ monthlyFixedAllowance }}
                     </div>
                     <div class="col">
-                        0
+                        {{ monthlyFixedAllowance * 12}}
                     </div>
                 </div>
 
@@ -260,10 +265,10 @@
 
                     </div>
                     <div class="col">
-                        Rs. 08
+                        {{ monthlyCTC }}
                     </div>
                     <div class="col">
-                        Rs. 97
+                        {{ salaryDetailsForm.value.annualCTC }}
                     </div>
                 </div>
             </form>

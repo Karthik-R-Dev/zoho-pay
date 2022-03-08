@@ -30,7 +30,8 @@ import { ViewEmployeeComponent } from './employees/view-employee/view-employee.c
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatCardModule } from '@angular/material/card'
 import { MatExpansionModule } from '@angular/material/expansion'
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
+import { ShowNoDataComponent } from './shared-components/show-no-data/show-no-data.component'
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MatRadioModule } from '@angular/material/radio'
     ContactsComponent,
     DialogComponent,
     AddEmployeeComponent,
-    ViewEmployeeComponent
+    ViewEmployeeComponent,
+    ShowNoDataComponent
   ],
   entryComponents: [DialogComponent],
   imports: [

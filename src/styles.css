@@ -10,3 +10,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-gray {
     color: rgb(128, 128, 128);
 }
+
+.svg-200 {
+    height: 200px;
+    width: 200px;
+}
