@@ -10,12 +10,12 @@ import { DialogComponent } from '../shared-components/dialog/dialog.component';
 })
 export class EmployeesComponent implements OnInit {
   employeeButtonMenu = [
-    {value: 'All Employees'},
-    {value: 'Active Employees'},
-    {value: 'Incomplete Employees'},
-    {value: 'Portal Enabled Employees'},
-    {value: 'Portal Disabled Employees'},
-    {value: 'Terminated Employees'},
+    {value: 'All Employees', routeTo: ''},
+    {value: 'Active Employees', routeTo: ''},
+    {value: 'Incomplete Employees', routeTo: ''},
+    {value: 'Portal Enabled Employees', routeTo: ''},
+    {value: 'Portal Disabled Employees', routeTo: ''},
+    {value: 'Terminated Employees', routeTo: ''},
   ]
   employeeButtonValue: string = 'Active Employees'
 
