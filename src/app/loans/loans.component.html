@@ -1,1 +1,76 @@
-<p>loans works!</p>
+<div class="">
+    <mat-toolbar>
+        <button
+            mat-button
+            [matMenuTriggerFor]="employeeButton" >
+            {{ loansButton }}
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu
+            #employeeButton="matMenu" >
+            <div
+                *ngFor="let button of loansButtonMenu" >
+                <mat-list-item>
+                    <a
+                        matLine mat-menu-item
+                        routerLink="/reimburse"
+                        routerLinkActive="active" >
+                            {{button.value}}
+                    </a>
+                </mat-list-item>
+            </div>
+        </mat-menu>
+        <div class="spacer"></div>
+        <button mat-raised-button>
+            Manage Loans
+        </button>
+        &nbsp;
+        <button mat-raised-button
+                color="primary">
+            Record Loan
+        </button>
+        &nbsp;
+        <button mat-raised-button
+                (click)="toggleFilter()">
+            <mat-icon>filter_list</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-expansion-panel [expanded]="step===1">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-around text-nowrap text-gray pt-3">
+                <p class="pr-2">FILTER BY:</p>
+                &nbsp;
+                <mat-icon class="align-middle">people</mat-icon>
+                <mat-form-field class="pl-2">
+                    <mat-label>Select an Employee</mat-label>
+                    <mat-select>
+                        <div class="p-1">
+                            <input type="text" class="w-100 p-1" [(ngModel)]="searchText">
+                        </div>
+                        <mat-option *ngFor="let option of employeeList | search: searchText"
+                                    [value]="option">
+                            {{ option }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="pt-3">
+                <button mat-mini-fab
+                        color="basic"
+                        (click)="toggleFilter()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+    <div class="text-center pt-5">
+        <div>
+            <img class="svg-200" src="https://css.zohostatic.in/zfpayroll/zpayroll//assets/images/nothing-genie.svg" alt="">
+        </div>
+        <div>
+            <h3 class="fw-bold">No results found</h3>
+            <p>Looks like you don't have any results for the filter applied</p>
+        </div>
+    </div>
+</div>

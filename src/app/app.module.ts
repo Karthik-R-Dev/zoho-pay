@@ -31,7 +31,9 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatCardModule } from '@angular/material/card'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatRadioModule } from '@angular/material/radio';
-import { ShowNoDataComponent } from './shared-components/show-no-data/show-no-data.component'
+import { ShowNoDataComponent } from './shared-components/show-no-data/show-no-data.component';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { ShowNoDataComponent } from './shared-components/show-no-data/show-no-da
     DialogComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
-    ShowNoDataComponent
+    ShowNoDataComponent,
+    SearchPipe
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -70,7 +73,8 @@ import { ShowNoDataComponent } from './shared-components/show-no-data/show-no-da
     MatTabsModule,
     MatCardModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
