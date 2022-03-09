@@ -1,1 +1,66 @@
-<p>contacts works!</p>
+<h2 style="margin: 10px; font-weight: lighter;">Get in touch with us.</h2>
+<hr>
+<div style="display: flex; justify-content: space-between;"> 
+    <div>
+        <mat-button-toggle-group>
+            <mat-button-toggle value="Contact Support">Contact Support</mat-button-toggle>
+            <mat-button-toggle value="Request a Demo">Request a Demo</mat-button-toggle>
+            <mat-button-toggle value="Request a Call">Request a Call</mat-button-toggle>
+        </mat-button-toggle-group>
+        <form class="form-one">
+            <p>How can we help you today?</p>
+            <mat-form-field class="input-form" appearance="fill">
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </form>
+        <div class="form-two">
+            <p>Attachments</p>
+            <input type="file" class="file-input" #fileUpload>
+            <div class="file-upload">
+                <button mat-stroked-button color="primary" class="upload-btn" (click)="fileUpload.click()">
+                    Choose File
+                </button>
+            </div>
+        </div>
+        <div class="form-three">
+            <p>Contact Number</p>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-icon matPrefix>phone</mat-icon>
+                <input type="tel" matInput>
+            </mat-form-field>
+        </div>
+        <div class="form-four">
+            <p>How critical is your request?</p>
+            <mat-form-field>
+                <mat-select>
+                    <mat-option value="Just FYI">Just FYI</mat-option>
+                    <mat-option value="Nothing Urgent, can wait">Nothing Urgent, can wait</mat-option>
+                    <mat-option value="I'm stuck, need assistance">I'm stuck, need assistance</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-five">
+            <p>Convenient Date & Time</p>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input type="datetime-local" matInput>
+            </mat-form-field>
+        </div>
+        <hr>
+        <button style="margin: 30px;" mat-raised-button color="primary">Submit</button>
+    </div>
+    <div>
+        <mat-card>
+            <mat-card-content>
+                <h4>Need help with procesing POI?</h4>
+                <p style="font-size: 12px;">Refer the POI help document</p>
+                <a href="">View Help Document</a>
+            </mat-card-content>
+            <hr>
+            <mat-card-content>
+                <h4>Do your employees need help with POI?</h4>
+                <p style="font-size: 12px;">Download and share this POI ebook to help them <br> submit POI on time.</p>
+                <a href=""><mat-icon style="position: relative; top: 5px;">file_download</mat-icon> Download E-book</a>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
