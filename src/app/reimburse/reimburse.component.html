@@ -1,1 +1,70 @@
-<p>reimburse works!</p>
+<div class="">
+    <mat-toolbar>
+        <button
+            mat-button
+            [matMenuTriggerFor]="employeeButton" >
+            {{ claimsButton }}
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu
+            #employeeButton="matMenu" >
+            <div
+                *ngFor="let button of claimsButtonMenu" >
+                <mat-list-item>
+                    <a
+                        matLine mat-menu-item
+                        routerLink="/reimburse"
+                        routerLinkActive="active" >
+                            {{button.value}}
+                    </a>
+                </mat-list-item>
+            </div>
+        </mat-menu>
+        <div class="spacer"></div>
+        <button mat-raised-button
+                color="primary">
+            Add Claim
+        </button>
+        &nbsp;
+        <button
+            [matMenuTriggerFor]="more"
+            mat-raised-button >
+            <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu
+            #more="matMenu" >
+            <a matLine mat-menu-item
+               routerLinkActive="active" >
+                Import Reimbursements
+            </a>
+            <a matLine mat-menu-item
+            routerLinkActive="active" >
+                Export Reimbursements
+            </a>
+        </mat-menu>
+        &nbsp;
+        <button mat-raised-button
+                [matMenuTriggerFor]="filter">
+            <mat-icon>filter_list</mat-icon>
+        </button>
+        <mat-menu #filter="matMenu"
+                  class="w-100">
+            <div class="row">
+                <div class="col text-gray">
+                    FILTER BY: 
+                    <input type="text">
+                </div>
+            </div>
+        </mat-menu>
+    </mat-toolbar>
+
+    <div class="text-center pt-5">
+        <div>
+            <img class="svg-200" src="https://css.zohostatic.in/zfpayroll/zpayroll//assets/images/nothing-genie.svg" alt="">
+        </div>
+        <div>
+            <h3 class="fw-bold">No results found</h3>
+            <p>Looks like you don't have any results for the filter applied</p>
+        </div>
+    </div>
+</div>
